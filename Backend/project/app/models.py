@@ -48,7 +48,7 @@ class Collectors_data(models.Model):
     address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
     def __str__(self):
       return self.user_id 
-
+    collector_id = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)  # You can also use PointField for coordinates
     description = models.TextField()
