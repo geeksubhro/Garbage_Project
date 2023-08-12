@@ -10,8 +10,8 @@ class user(models.Model):
         ('Collector', 'Collector'),
         ('Manager', 'Manager'),
         ('End_user', 'Contributer'),
-        ('Region_head', 'Region Head',)
-        ('Recycle_facility', 'Recycle_facility')
+        ('Region_head', 'Region Head'),
+        ('Recycle_facility', 'Recycle_facility'),
         )
 
     name = models.CharField(max_length=255)
