@@ -17,7 +17,7 @@ class Address(models.Model):
   def __str__(self):
     return self.address_id      
       
-class user(models.Model):
+class User(models.Model):
     user_id = models.AutoField(primary_key=True)
     ROLES = (
         ('Admin', 'Admin'),
