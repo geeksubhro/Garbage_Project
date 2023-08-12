@@ -5,7 +5,20 @@ class React (models.Model):
     employee = models.CharField(max_length=30)
     department = models.CharField(max_length=40)
     
+    
+class Address(models.Model):
+  address_id= models.AutoField(primary_key=True)
+  house_number = models.CharField(max_length=100)
+  road = models.CharField(max_length=100)
+  pin_code = models.CharField(max_length=100)
+  road_namw= models.CharField(max_length=100)
+  state_address = models.CharField(max_length=100)
+  district_address = models.CharField(max_length=100)
+  def __str__(self):
+    return self.address_id      
+      
 class user(models.Model):
+    user_id = models.AutoField(primary_key=True)
     ROLES = (
         ('Admin', 'Admin'),
         ('Collector', 'Collector'),
@@ -14,19 +27,36 @@ class user(models.Model):
         ('Region_head', 'Region Head'),
         ('Recycle_facility', 'Recycle_facility'),
         )
-
-    name = models.CharField(max_length=255)
+    aadhar= models.CharField(max_length=255)
+    f_name = models.CharField(max_length=255)
+    l_name = models.CharField(max_length=255)
     role = models.CharField(max_length=20, choices=ROLES)
     contact_number = models.CharField(max_length=15)
-    address = models.TextField()
-  
-class CollectionPoint(models.Model):
+    gst_number = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
+    device_data = models.CharField(max_length=25)
+    def __str__(self):
+      return self.user_id
+     
+       
+
+        
+
+   
+class Collectors_data(models.Model):
+    address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
+    def __str__(self):
+      return self.user_id 
+
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)  # You can also use PointField for coordinates
     description = models.TextField()
     collection_schedule = models.CharField(max_length=255)
     capacity = models.PositiveIntegerField()
     supervisor = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+
 
 class WasteBin(models.Model):
     point = models.ForeignKey(CollectionPoint, on_delete=models.CASCADE)
