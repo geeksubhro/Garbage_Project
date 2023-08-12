@@ -8,7 +8,12 @@ class user(models.Model):
     ROLES = (
         ('Admin', 'Admin'),
         ('Collector', 'Collector'),
-        ('Manager', 'Manager'),)
+        ('Manager', 'Manager'),
+        ('End_user', 'Contributer'),
+        ('Region_head', 'Region Head',)
+        ('Recycle_facility', 'Recycle_facility')
+        )
+
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=20, choices=ROLES)
     contact_number = models.CharField(max_length=15)
