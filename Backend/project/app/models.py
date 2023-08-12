@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class React (models.Model):
     employee = models.CharField(max_length=30)
     department = models.CharField(max_length=40)
+    
 class user(models.Model):
     ROLES = (
         ('Admin', 'Admin'),
