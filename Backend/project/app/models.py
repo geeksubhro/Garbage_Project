@@ -79,47 +79,47 @@ class RecycleFacility(models.Model):
     address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
 
 
-class CollectionRoute(models.Model):
-    name = models.CharField(max_length=255)
-    start_point = models.ForeignKey(
-        CollectionPoint, related_name="start_routes", on_delete=models.CASCADE
-    )
-    end_point = models.ForeignKey(
-        CollectionPoint, related_name="end_routes", on_delete=models.CASCADE
-    )
-    assigned_collector = models.ForeignKey(User, on_delete=models.CASCADE)
-    schedule = models.CharField(max_length=255)
+# class CollectionRoute(models.Model):
+#     name = models.CharField(max_length=255)
+#     start_point = models.ForeignKey(
+#         CollectionPoint, related_name="start_routes", on_delete=models.CASCADE
+#     )
+#     end_point = models.ForeignKey(
+#         CollectionPoint, related_name="end_routes", on_delete=models.CASCADE
+#     )
+#     assigned_collector = models.ForeignKey(User, on_delete=models.CASCADE)
+#     schedule = models.CharField(max_length=255)
 
 
-class WasteCollectionRecord(models.Model):
-    collector = models.ForeignKey(User, on_delete=models.CASCADE)
-    bin = models.ForeignKey(WasteBin, on_delete=models.CASCADE)
-    collection_datetime = models.DateTimeField()
-    collected_amount = models.PositiveIntegerField()
-    notes = models.TextField()
+# class WasteCollectionRecord(models.Model):
+#     collector = models.ForeignKey(User, on_delete=models.CASCADE)
+#     bin = models.ForeignKey(WasteBin, on_delete=models.CASCADE)
+#     collection_datetime = models.DateTimeField()
+#     collected_amount = models.PositiveIntegerField()
+#     notes = models.TextField()
 
 
-class WasteDisposalSite(models.Model):
-    name = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
-    capacity = models.PositiveIntegerField()
-    description = models.TextField()
+# class WasteDisposalSite(models.Model):
+#     name = models.CharField(max_length=255)
+#     location = models.CharField(max_length=255)
+#     capacity = models.PositiveIntegerField()
+#     description = models.TextField()
 
 
-class DisposalRecord(models.Model):
-    collector = models.ForeignKey(User, on_delete=models.CASCADE)
-    bin = models.ForeignKey(WasteBin, on_delete=models.CASCADE)
-    disposal_site = models.ForeignKey(WasteDisposalSite, on_delete=models.CASCADE)
-    disposal_datetime = models.DateTimeField()
-    disposed_amount = models.PositiveIntegerField()
-    notes = models.TextField()
+# class DisposalRecord(models.Model):
+#     collector = models.ForeignKey(User, on_delete=models.CASCADE)
+#     bin = models.ForeignKey(WasteBin, on_delete=models.CASCADE)
+#     disposal_site = models.ForeignKey(WasteDisposalSite, on_delete=models.CASCADE)
+#     disposal_datetime = models.DateTimeField()
+#     disposed_amount = models.PositiveIntegerField()
+#     notes = models.TextField()
 
 
-class Report(models.Model):
-    report_type = models.CharField(max_length=50)
-    date_generated = models.DateTimeField()
-    parameters = models.JSONField()
-    data = models.JSONField()
+# class Report(models.Model):
+#     report_type = models.CharField(max_length=50)
+#     date_generated = models.DateTimeField()
+#     parameters = models.JSONField()
+#     data = models.JSONField()
 
 
 # You can extend the User model to include additional fields like Role, Contact Number, and Address
