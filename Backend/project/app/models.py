@@ -19,6 +19,7 @@ class Address(models.Model):
     road_namw = models.CharField(max_length=100)
     state_address = models.CharField(max_length=100)
     district_address = models.CharField(max_length=100)
+    gender = models.CharField(max_length=10)
 
     def __str__(self):
         return self.address_id
@@ -48,7 +49,8 @@ class User(models.Model):
 
     def __str__(self):
         return self.user_id
-
+    class Meta:
+            db_table='student'
 
 class Collectors_data(models.Model):
     order_id = models.AutoField(primary_key=True)
