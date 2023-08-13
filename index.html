@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="assets/css/module-css/header-section.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link href="assets/css/color/theme-color.css" id="jssDefault" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
     <link rel="stylesheet" href="Style/bootstrap.css">
     <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/style5.css">
     <title>Document</title>
 </head>
 <body>
     <!-- Nav Section Starts here -->
-    <div class="mynav">
-
+    <div class="mynav" id="mynav">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">CLEAN IT</a>
@@ -26,13 +23,19 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">  
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#mynav">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="#">Service</a>
+                    <a class="nav-link active" href="#mcard">Service</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="profile.html">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="signup.html">SignUp</a>
                   </li>
                 </ul>
                 <form class="d-flex">
@@ -44,33 +47,41 @@
                 </form>
               </div>
         </div>
-    </nav>
-
-          
+    </nav>          
     </div>
     <!-- Nav Section Ends here -->
     <!-- Hero section starts-->
-        <div class="myHero">
-            <div class="p-2 text-center bg-image" style="
-            background-image: url('https://www.jasa.nl/wp-content/uploads/2019/05/Onze-5-favoriete-plastic-upcycle-artikelen-2.png');
-            height: 400px;
-            margin-top: 8px;
-          ">
-          <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi2gq9_7hsnVe28N7lNZKnZ8tBkUvoVbudsA&usqp=CAU" class="img-thumbnail" alt="..."> -->
-          <div class="mask">
-            <div class="d-flex justify-content-center align-items-center h-100">
-              <div class="text-white">
-                <h1 class="mb-3">CLEAN IT</h1>
-                <h4 class="mb-3">Go Green</h4>
-                <a class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a>
-              </div>
+    <div class="row py-5" id="about" >
+      <div class="container-fluid">
+        <!-- content starts here -->
+        <div class="row p-5 text-white">
+          <div class="col-12">
+            <h1 class="display-5 fw-bold text-danger">Lets Clean it for Free</h1>
+          </div>
+          <div class="col-6 mt-5">
+            <p class="fs-4 text-black-50">
+              Our institue is providing best in class facility for compitive
+              exams like JEE , NEET , GATE from last 11 years . We don't
+              compromise with our teaching quality. Each and every student is
+              taken care equally.
+            </p>
+            <!-- <br />
+            <button class="btn" style="background-color: var(--main-primary-color); color: aliceblue;border-radius: 10px;">
+              <p class="fs-3 p-2 m-auto">Join Now</p>
+            </button> -->
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card shadow-lg rounded-3">
+              <img src="images/land2.jpeg" class="card-img-top" alt="..." />
             </div>
           </div>
         </div>
-        </div>
+        <!-- content ends here -->
+      </div>
+    </div>
     <!-- Hero section ends-->
     <!-- Card Section -->
-        <div class="MyCards">
+        <div class="MyCards" id="mcard" style="background-color: #BED9B7;">
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
                   <div class="card">
