@@ -5,8 +5,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 
 class React(models.Model):
-    employee = models.CharField(max_length=30)
+    employee = models.AutoField(primary_key=True)
     department = models.CharField(max_length=40)
+    def __str__(self):
+        return self.employee
 
 
 class Address(models.Model):
@@ -59,10 +61,11 @@ class Collectors_data(models.Model):
     weight = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.collection_id
+        return self.order_id
 
 
 class GarbageType(models.Model):
+    garbage_serial_number = models.AutoField(primary_key=True, default='00000000')
     order_id = models.ForeignKey(Collectors_data, on_delete=models.CASCADE)
     Plastic = models.FloatField()
     Paper = models.FloatField()
@@ -70,6 +73,8 @@ class GarbageType(models.Model):
     Electronics = models.FloatField()
     Wood = models.FloatField()
     Glass = models.FloatField()
+    def __str__(self):
+        return self.collection_id  
 
 
 class RecycleFacility(models.Model):
@@ -77,6 +82,8 @@ class RecycleFacility(models.Model):
     collection_id = models.ForeignKey(Collectors_data, on_delete=models.CASCADE)
     govornor = models.ForeignKey(User, on_delete=models.CASCADE)
     address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.recycleFacility_Id
 
 
 # class CollectionRoute(models.Model):
