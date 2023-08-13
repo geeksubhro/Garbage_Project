@@ -1,10 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
+# settings.py
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 
 class React(models.Model):
-    employee = models.CharField(max_length=30)
+    employee = models.AutoField(primary_key=True)
     department = models.CharField(max_length=40)
+    def __str__(self):
+        return self.employee
 
 
 class Address(models.Model):
@@ -21,7 +25,7 @@ class Address(models.Model):
 
 
 class User(models.Model):
-    user_id = models.AutoField(primary_key=True)
+    user_id = models.AutoField(primary_key=True, default='0000000')
     ROLES = (
         ("Admin", "Admin"),
         ("Collector", "Collector"),
@@ -30,46 +34,47 @@ class User(models.Model):
         ("Region_head", "Region Head"),
         ("Recycle_facility", "Recycle_facility"),
     )
-    aadhar = models.CharField(max_length=255)
-    f_name = models.CharField(max_length=255)
-    l_name = models.CharField(max_length=255)
-    role = models.CharField(max_length=20, choices=ROLES)
-    contact_number = models.CharField(max_length=15)
-    gst_number = models.CharField(max_length=100)
-    age = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
-    address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
-    device_data = models.CharField(max_length=25)
-    city = models.CharField(max_length=25)
+    aadhar = models.CharField(max_length=255, default='000000000000')
+    f_name = models.CharField(max_length=255, default='000000000000')
+    l_name = models.CharField(max_length=255, default='000000000000')
+    role = models.CharField(max_length=20, choices=ROLES, default='000000000000')
+    contact_number = models.CharField(max_length=15, default='000000000')
+    gst_number = models.CharField(max_length=100, default='000000000')
+    age = models.CharField(max_length=100, default='000000000000')
+    email = models.CharField(max_length=100, default='000000000000')
+    address_id = models.ForeignKey(Address, on_delete=models.CASCADE, default='000000000000')
+    device_data = models.CharField(max_length=25, default='000000000000')
+    city = models.CharField(max_length=25, default='000000000000')
 
     def __str__(self):
         return self.user_id
 
 
 class Collectors_data(models.Model):
-    collection_id = models.AutoField(primary_key=True)
+    order_id = models.AutoField(primary_key=True)
     cus_address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    customer_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    collector_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    regional_head_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='collector_customer')
+    collector_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='collector_collector')
+    regional_head_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='collected_by_regional_heads')
     Feedback = models.TextField()
     collection_schedule = models.DateTimeField()
     weight = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.collection_id
+        return self.order_id
 
 
 class GarbageType(models.Model):
-    collection_Id = models.ForeignKey(
-        Collectors_data, on_delete=models.CASCADE, unique=True
-    )
+    garbage_serial_number = models.AutoField(primary_key=True, default='00000000')
+    order_id = models.ForeignKey(Collectors_data, on_delete=models.CASCADE)
     Plastic = models.FloatField()
     Paper = models.FloatField()
     Metal = models.FloatField()
     Electronics = models.FloatField()
     Wood = models.FloatField()
     Glass = models.FloatField()
+    def __str__(self):
+        return self.collection_id  
 
 
 class RecycleFacility(models.Model):
@@ -77,6 +82,8 @@ class RecycleFacility(models.Model):
     collection_id = models.ForeignKey(Collectors_data, on_delete=models.CASCADE)
     govornor = models.ForeignKey(User, on_delete=models.CASCADE)
     address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.recycleFacility_Id
 
 
 # class CollectionRoute(models.Model):
