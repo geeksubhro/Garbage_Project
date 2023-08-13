@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon_io/android-chrome-512x512.png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="Style/bootstrap.css">
+    <link rel="stylesheet" href="Style/style5.css">
+    <title>Admission Form</title>
+</head>
+<body style="background-color: #BED9B7;">
+    <div class="container-fluid">
+      <!-- Nav starts here -->
+      <div class="mynav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+          <div class="container-fluid">
+              <a class="navbar-brand fw-bolder" href="#">CYCLE IT</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>   
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">  
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="services.html">Service</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="profile.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="signup.html">SignUp</a>
+                    </li>
+                  </ul>
+                  <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Availability In Your Area" aria-label="Search">
+                    <span style="margin-right: 50px;">
+                    </span>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+  
+                  </form>
+                </div>
+          </div>
+      </nav>          
+      </div>
+    <!-- Nav ends here -->
+      <!-- sign up starts here -->
+        <div class="row">
+            <div class="col-8 mx-auto m-3 p-3 sign_up">
+                <form action="#">
+                  <h2 class="text-center py-3">Sign Up here</h2>
+                    <div class="mb-3">
+                      <label for="firstname" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="firstname" placeholder="Enter First Name">
+                      <div class="alert alert-danger mt-3" id="fn_alert" style="display: none;">You must Enter your first name</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="lastname" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name">
+                      <div class="alert alert-danger mt-3" id="ln_alert" style="display: none;">You must Enter your Last name</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="Email" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter your Email">
+                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      <div class="alert alert-danger mt-3" id="m_alert" style="display: none;">You must Enter your email</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="Password" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="Password" placeholder="Enter Password">
+                      <div class="alert alert-danger mt-3" id="ps_alert" style="display: none;">You must Enter your password</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                      <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm your password">
+                      <div class="alert alert-danger mt-3" id="cps_alert" style="display: none;">You must confirm your password</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Phone" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="Phone" placeholder="Enter phone number">
+                        <div class="alert alert-danger mt-3" id="ph_alert" style="display: none;">You must Enter your Phone Number</div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <div class="sign-btn">
+                    <div class="text-center p-1">
+                        <a href="index.html"><button type="button" class="btn btn-primary btn-warning text-decoration-none">Back to Home</button></a>
+                    </div>
+                    <div class="text-center p-1">
+                        <button type="button" class="btn btn-primary" onclick="validationUser()">Submit</button>
+                    </div>
+                  </div>
+                  </form>
+            </div>
+        </div>
+      <!-- sign up ends here -->
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
